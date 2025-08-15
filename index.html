@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDorker - Pesquise como um profissional</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    
+    <h1>GDorker <span class="tag">Pesquise como um profissional</span></h1>
+    <p class="muted">Monte sua busca adicionando blocos (aspas, exclusões, site, filetype, título, URL, datas…).</p>
+
+    <div class="panel">
+        <div class="row">
+        <label for="baseTerm" class="muted">Termo base (opcional):</label>
+        <input id="baseTerm" placeholder="ex.: relatório anual" style="flex:1" />
+        </div>
+    </div>
+
+  <div class="panel">
+    <div class="row">
+      <select id="blockType" aria-label="Tipo de bloco">
+        <option value="exactPhrase">Frase exata ("…")</option>
+        <option value="or">OU (A OR B)</option>
+        <option value="excludeTerm">Excluir termo (-palavra)</option>
+        <option value="wildcard">Coringa (*)</option>
+        <option value="around">Palavras próximas (AROUND:)</option>
+        <option value="siteSearch">Site específico (site:)</option>
+        <option value="excludeSite">Excluir site (-site:)</option>
+        <option value="inurl">Na URL (inurl:)</option>
+        <option value="allinurl">Todos na URL (allinurl:)</option>
+        <option value="intitle">No título (intitle:)</option>
+        <option value="allintitle">Todos no título (allintitle:)</option>
+        <option value="intext">No corpo (intext:)</option>
+        <option value="allintext">Todos no corpo (allintext:)</option>
+        <option value="filetype">Tipo de arquivo (filetype:)</option>
+        <option value="after">Após data (after:YYYY-MM-DD)</option>
+        <option value="before">Antes de data (before:YYYY-MM-DD)</option>
+        <option value="groupFiletype">Grupo de arquivos (pdf OR docx)</option>
+        <option value="cache">Cache (cache:)</option>
+        <option value="related">Relacionado (related:)</option>
+        <option value="define">Definição (define:)</option>
+        <option value="source">Fonte específica (source:)</option>
+        <option value="location">Localização (location:)</option>
+      </select>
+
+      <input id="blockValue" placeholder='Valor (ex.: "editais 2025" / gov.br / pdf / login)' style="flex:1" />
+      <button id="btnAddNow" class="success" type="button">Adicionar bloco</button>
+    </div>
+    <p class="muted" id="hint"></p>
+  </div>
+
+  <div class="chips" id="chips"></div>
+
+  <div class="panel">
+    <div class="row">
+      <button id="btnGenerate" class="primary" type="button">Abrir no Google</button>
+      <button id="btnCopy" class="secondary" type="button">Copiar dork</button>
+    </div>
+    <p class="muted" style="margin:10px 0">Pré-visualização da query (o que será enviado para o Google):</p>
+    <div class="preview" id="preview"></div>
+    <p class="muted" id="warning"></p>
+  </div>
+    
+<script src="js/app.js"></script>
+</body>
+</html>
