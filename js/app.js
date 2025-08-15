@@ -38,3 +38,22 @@ $('#blockType').addEventListener('change', e => {
     const type = e.target.value;
     hint.textContent = hints[type] || '';
 });
+
+$('#btnAddNow').addEventListener('click', () => {
+    const type = $('#blockType').value;
+    const value = $('#blockValue').value.trim();
+    if (!value && !['after', 'before'].includes(type)) return;
+
+    if((type === 'after' || type === 'before') && !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+        return alert('Formato de data inválido. Use YYYY-MM-DD ou "YYYY-MM-DD" ou "YYYY".');
+    }
+
+    state.blocks.push({ type, value });
+    $('#blockValue').value = '';
+});
+
+$('#baseTerm').addEventListener('input', e => {
+    state.base = e.target.value.trim();
+    render();
+});
+
