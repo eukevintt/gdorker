@@ -50,10 +50,70 @@ $('#btnAddNow').addEventListener('click', () => {
 
     state.blocks.push({ type, value });
     $('#blockValue').value = '';
-});
-
-$('#baseTerm').addEventListener('input', e => {
-    state.base = e.target.value.trim();
     render();
 });
 
+$('#baseTerm').addEventListener('input', e => {
+    state.base = e.target.value;
+    render();
+});
+
+function render() {
+    chips.innerHTML = '';
+    state.blocks.forEach((block, index) => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.innerHTML = `<b>${label(block.type)}:</b> ${escapeHtml(block.value)} <button aria-label="remove">x</button>`;
+        chip.querySelector('button').addEventListener('click', () => {
+            state.blocks.splice(index, 1); 
+            render();
+        });
+        chips.appendChild(chip);
+    });
+
+    const query = buildQuery();
+    preview.textContent = query;
+
+    if(query.length > 1500) {
+        alert(`Aviso: sua query tem ${query.length} caracteres. O Google pode não aceitar queries muito longas.`);
+    }
+}
+
+function label(type){
+    return ({
+        exactPhrase: 'Frase exata',
+        or: 'OU',
+        excludeTerm: 'Excluir termo',
+        wildcard: 'Coringa',
+        around: 'Palavras próximas',
+        siteSearch: 'Site específico',
+        excludeSite: 'Excluir site',
+        inurl: 'Na URL',
+        allinurl: 'Todos na URL',
+        intitle: 'No título',
+        allintitle: 'Todos no título',
+        intext: 'No corpo',
+        allintext: 'Todos no corpo',
+        filetype: 'Tipo de arquivo',
+        after: 'Após data',
+        before: 'Antes de data',
+        groupFiletype: 'Grupo de arquivos',
+        cache: 'Cache',
+        related: 'Relacionado',
+        define: 'Definição',
+        source: 'Fonte específica',
+        location: 'Localização'
+    }[type] || type);
+}
+
+function escapeHtml(value){
+    return value.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function warnings(msg) {
+    warning.textContent = msg || '';
+};
+
+function buildQuery() {
+
+}
