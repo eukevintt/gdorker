@@ -26,7 +26,7 @@ const hints = {
     filetype: 'Busca por tipo de arquivo com "filetype:", como "filetype:pdf".',
     after: 'Formato: YYYY-MM-DD',
     before: 'Formato: YYYY-MM-DD',
-    groupFiletype: 'Combina tipos de arquivo com "OR", como "pdf OR docx".',
+    groupFiletype: 'Combina tipos de arquivo com "OR", como "pdf OR docx". Coloque no input: pdf;docx (ou algum outro tipo de arquivo que deseja)',
     cache: 'Busca por conteúdo em cache com "cache:", como "cache:exemplo.com".',
     related: 'Busca por sites relacionados com "related:", como "related:exemplo.com".',
     define: 'Busca definições com "define:", como "define:exemplo".',

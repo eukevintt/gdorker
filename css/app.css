@@ -127,7 +127,6 @@ button.success {
   margin: 0 auto;
 }
 
-/* Social Section Styles */
 .social-section {
   margin-top: 24px;
   padding-top: 20px;
@@ -203,7 +202,6 @@ button.success {
   border-color: #084c8d;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   body {
     align-items: flex-start;
