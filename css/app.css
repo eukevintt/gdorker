@@ -1,20 +1,19 @@
 html,
 body {
-  height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
     sans-serif;
-  max-width: 920px;
-  margin: 32px auto;
-  padding: 0 16px;
+  background: #f8fafc;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #f8fafc;
+  align-items: flex-start;
+  padding: 32px 16px;
+  box-sizing: border-box;
 }
 h1 {
   font-weight: 700;
@@ -125,5 +124,105 @@ button.success {
 .container {
   width: 100%;
   max-width: 960px;
-  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Social Section Styles */
+.social-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.social-help {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.help-text {
+  color: #475569;
+  font-size: 14px;
+  margin: 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-link.project {
+  background: #238636;
+  color: white;
+  border-color: #238636;
+}
+
+.social-link.project:hover {
+  background: #1f7a2e;
+  border-color: #1f7a2e;
+}
+
+.social-link.github {
+  background: #24292f;
+  color: white;
+  border-color: #24292f;
+}
+
+.social-link.github:hover {
+  background: #1c2128;
+  border-color: #1c2128;
+}
+
+.social-link.linkedin {
+  background: #0a66c2;
+  color: white;
+  border-color: #0a66c2;
+}
+
+.social-link.linkedin:hover {
+  background: #084c8d;
+  border-color: #084c8d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    padding: 20px 16px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-link {
+    width: 200px;
+    justify-content: center;
+  }
+}
+
+@media (min-height: 800px) {
+  body {
+    align-items: center;
+  }
 }
